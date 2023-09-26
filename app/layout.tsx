@@ -1,19 +1,21 @@
-import './globals.css'
-import type { Metadata } from 'next'
+import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
-export const metadata: Metadata = {
-  title: 'Pocketsub 2',
-  description: 'Manage your payments',
-}
+export const metadata = {
+  title: "Pocketsub",
+  description: "Manage your payments with ease.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+    <ClerkProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ClerkProvider>
+  );
 }
